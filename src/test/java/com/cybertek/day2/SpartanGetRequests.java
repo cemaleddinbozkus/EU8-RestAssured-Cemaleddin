@@ -101,5 +101,6 @@ public class SpartanGetRequests {
         Assertions.assertEquals("17",response.header("Content-Length"));
         //verify body is "Hello from Sparta"
         Assertions.assertEquals("Hello from Sparta",response.body().asString());
+
     }
 }
