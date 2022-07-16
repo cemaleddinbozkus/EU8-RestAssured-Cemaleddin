@@ -2,6 +2,7 @@ package com.cybertek.day2;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -36,6 +37,27 @@ public class HrGetRequests {
         and content type equals to application/json
         and response body contains   Americas
      */
+
+    @DisplayName("GET request to /regions2")
+    @Test
+    public void test2(){
+        Response response = RestAssured.get("/regions/2");
+
+        //verify status code
+        Assertions.assertEquals(200,response.statusCode());
+        //verify content type
+        Assertions.assertEquals("application/json",response.contentType());
+
+        response.prettyPrint();
+
+        //verify body contains America
+        Assertions.assertEquals(response.body().asString().contains("America"), true);
+
+
+
+
+
+    }
 
 
 }
