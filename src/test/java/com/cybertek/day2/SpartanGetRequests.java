@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class SpartanGetRequests {
 
 
-    //    Given Accept type application/json
+//    Given Accept type application/json
 //    When user send GET request to api/spartans end point
 //    Then status code must 200
 //    And response Content Type must be application/json
