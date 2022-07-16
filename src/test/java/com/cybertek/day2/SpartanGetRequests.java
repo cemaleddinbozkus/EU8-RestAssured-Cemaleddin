@@ -53,7 +53,7 @@ public class SpartanGetRequests {
     @Test
     public void test2(){
         Response response = RestAssured.given().accept(ContentType.JSON).
-                when().get(baseUrl + "/api/spartans/3");
+                            when().get(baseUrl + "/api/spartans/3");
 
 
         //verify status code 200
