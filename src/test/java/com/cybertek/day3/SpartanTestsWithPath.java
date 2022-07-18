@@ -36,10 +36,10 @@ public class SpartanTestsWithPath extends SpartanTestBase {
                 .and().pathParam("id",10)
                 .when().get("/api/spartans/{id}");
 
-        /*
+
         assertEquals(200,response.statusCode());
         assertEquals("application/json",response.contentType());
-*/
+
         //verify each json key has specific value
         System.out.println(response.path("id").toString());
         System.out.println(response.path("name").toString());
