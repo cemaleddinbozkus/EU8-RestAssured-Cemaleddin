@@ -17,9 +17,9 @@ public class HamcrestMatchersApiTest {
         given().log().all().
                 accept(ContentType.JSON)
                 .and().pathParam("id", 15)
-                .when()
+        .when()
                 .get("http://52.207.61.129:8000/api/spartans/{id}")
-                .then()
+        .then()
                 .statusCode(200)
                 .and().assertThat()
                 .contentType("application/json")
@@ -41,9 +41,9 @@ public class HamcrestMatchersApiTest {
                 .pathParam("id", 10423)
                 .and()
 
-                .when()
+        .when()
                 .get("http://api.cybertektraining.com/teacher/{id}")
-                .then()
+        .then()
                 .statusCode(200)
                 .and()
                 .contentType("application/json;charset=UTF-8")
@@ -65,9 +65,9 @@ public class HamcrestMatchersApiTest {
         //verify Alexander,Darleen,Sean inside the all teachers
         given()
                 .accept(ContentType.JSON)
-                .when()
+        .when()
                 .get("http://api.cybertektraining.com/teacher/all")
-                .then()
+        .then()
                 .statusCode(200)
                 .and()
                 .body("teachers.firstName", hasItems("Alexander", "Darleen", "Sean"));
