@@ -70,7 +70,7 @@ public class SpartanTestsWithParameters {
         assertEquals(404, response.statusCode());
         //verify content type
         assertEquals("application/json", response.contentType());
-        //verify Not Foun d in the json payload/body
+        //verify Not Found in the json payload/body
         assertTrue(response.body().asString().contains("Not Found"));
 
     }

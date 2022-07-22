@@ -28,5 +28,11 @@ public class JSONtoJAVATest extends SpartanTestBase {
         //after we got the map, we can use hamcrest or junit assertions to do assertion
         String actualName = (String) jsonMap.get("name");
         assertThat(actualName,is("Meta"));
+
+        @DisplayName("GET all spartans to JAVA data structure")
+        @Test
+        public void getAllSpartan() {
+
+        }
     }
 }
