@@ -47,6 +47,7 @@ public class DBUtils {
             e.printStackTrace();
         }
     }
+
     /**
      *
      * @param query
