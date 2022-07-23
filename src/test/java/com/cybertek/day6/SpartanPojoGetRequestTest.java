@@ -33,5 +33,7 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         System.out.println("spartan15.getGender() = " + spartan15.getGender());
 
 
+
+
     }
 }
