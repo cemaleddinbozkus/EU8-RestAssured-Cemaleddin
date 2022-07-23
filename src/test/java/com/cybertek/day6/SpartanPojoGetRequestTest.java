@@ -4,6 +4,7 @@ import com.cybertek.pojo.Spartan;
 import com.cybertek.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
 import io.restassured.internal.RestAssuredResponseOptionsGroovyImpl;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
 
     @DisplayName("GET one spartan and convert it to Spartan Object")
     @Test
-    public void oneSpartanPojo(){
+    public void oneSpartanPojo() {
         Response response = given().accept(ContentType.JSON)
                 .and().pathParam("id", 15)
                 .when().get("/api/spartans/{id}")
@@ -27,13 +28,37 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
         //1.using as() method
         //we convert json response to spartan object with the help of jackson
         //as() method uses jackson to de serialize(converting JSON to Java class)
-       Spartan spartan15 = response.as(Spartan.class);
+        Spartan spartan15 = response.as(Spartan.class);
         System.out.println(spartan15);
         System.out.println("spartan15.getId() = " + spartan15.getId());
         System.out.println("spartan15.getGender() = " + spartan15.getGender());
 
-
-
-
     }
-}
+
+        @DisplayName("Get one spartan from search endpoint result and use POJO")
+        @Test
+        public void spartanSearchWithPojo(){
+
+            ///spartans/search?nameContains=a&gender=Male
+            // send get request to above endpoint and save first object with type Spartan POJO
+            JsonPath jsonPath = given().accept(ContentType.JSON)
+                    .and().queryParams("nameContains", "a",
+                            "gender", "Male")
+                    .when().get("/api/spartans/search")
+                    .then().statusCode(200)
+                    .extract().jsonPath();
+
+            //get the first spartan from content list and put inside spartan object
+            Spartan s1 = jsonPath.getObject("content[0]", Spartan.class);
+
+            System.out.println("s1 = " + s1);
+            System.out.println("s1.getName() = " + s1.getName());
+            System.out.println("s1.getGender() = " + s1.getGender());
+
+
+        }
+        }
+
+
+
+
