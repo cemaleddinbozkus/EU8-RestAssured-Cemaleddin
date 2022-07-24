@@ -1,5 +1,6 @@
 package com.cybertek.day6;
 
+import com.cybertek.pojo.Search;
 import com.cybertek.pojo.Spartan;
 import com.cybertek.utilities.SpartanTestBase;
 import io.restassured.http.ContentType;
@@ -55,8 +56,21 @@ public class SpartanPojoGetRequestTest extends SpartanTestBase {
             System.out.println("s1.getName() = " + s1.getName());
             System.out.println("s1.getGender() = " + s1.getGender());
 
-
         }
+
+    @Test
+    public void test3(){
+        Response response = given().accept(ContentType.JSON)
+                .and().queryParams("nameContains", "a",
+                        "gender", "Male")
+                .when().get("/api/spartans/search")
+                .then().statusCode(200)
+                .extract().response();
+
+        Search searchResult = response.as(Search.class);
+
+        System.out.println(searchResult.getContent().get(0).getName());
+    }
         }
 
 
