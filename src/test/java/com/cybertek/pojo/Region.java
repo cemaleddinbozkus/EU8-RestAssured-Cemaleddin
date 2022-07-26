@@ -39,4 +39,7 @@ public class Region {
     public void setLinks(List<Link> links) {
         this.links = links;
     }
+
+    public String getRId() {
+    }
 }
