@@ -16,7 +16,7 @@ import java.util.List;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
-public class ORDSPojoGetRequestTest<Employee> extends HRTestBase {
+public class ORDSPojoGetRequestTest extends HRTestBase {
 
     @Test
     public void regionTest(){
@@ -27,7 +27,7 @@ public class ORDSPojoGetRequestTest<Employee> extends HRTestBase {
 
         System.out.println(region1);
 
-        System.out.println("region1.getRegion_id() = " + region1.rId());
+        System.out.println("region1.getRegion_id() = " + region1.getRId());
         System.out.println("region1.getRegion_name() = " + region1.getRegion_name());
         System.out.println("region1.getLinks().get(0).getHref() = " + region1.getLinks().get(0).getHref());
 
