@@ -9,7 +9,6 @@ import static io.restassured.RestAssured.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 public class SpartanPostRequestDemo extends SpartanTestBase {
-
      /*
     Given accept type and Content type is JSON
     And request json body is:
@@ -48,6 +47,8 @@ public class SpartanPostRequestDemo extends SpartanTestBase {
         assertThat(response.path("data.name"),is("Severus"));
         assertThat(response.path("data.gender"),is("Male"));
         assertThat(response.path("data.phone"),is(8877445596L));
+
+        response.prettyPrint();
 
     }
 
